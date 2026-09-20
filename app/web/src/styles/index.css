@@ -1,0 +1,162 @@
+:root {
+  --bg: #ffffff;
+  --bg-page: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-soft: #f8fafc;
+  --bg-input: #ffffff;
+  --bg-sidebar: #f4f7fc;
+  --bg-sidebar-item-hover: #e2e8f0;
+  --bg-sidebar-item-active: #d8dee8;
+  --border-sidebar-item-active: #cbd5e1;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text: #1e293b;
+  --text-soft: #475569;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --placeholder: #cbd5e1;
+  --primary: #2563eb;
+  --primary-soft: #eff6ff;
+  --primary-hover: #1d4ed8;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: #eff6ff;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(37, 99, 235, 0.08);
+  --shadow-lg: 0 4px 16px rgba(15, 23, 42, 0.1);
+  --content-max: 1200px;
+  --page-gutter: clamp(8px, 1.2vw, 12px);
+  --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei UI', sans-serif;
+  --scrollbar-thumb: #cfd2dc;
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  --overlay-scrim: rgba(15, 23, 42, 0.45);
+  /* Keep in sync with shared/theme.ts THEME_CHROME */
+  --chrome-bg: #f4f7fc;
+  --chrome-fg: #475569;
+  --danger-ghost-border: #fecaca;
+  --danger-ghost-fg: #dc2626;
+  --toast-info-bg: #eff6ff;
+  --toast-info-border: #bfdbfe;
+  --toast-info-fg: #1e40af;
+  --toast-ok-bg: #ecfdf5;
+  --toast-ok-border: #bbf7d0;
+  --toast-ok-fg: #166534;
+  --toast-error-bg: #fef2f2;
+  --toast-error-border: #fecaca;
+  --toast-error-fg: #991b1b;
+}
+
+/*
+  Dark hierarchy (dark → light):
+  sidebar/chrome → page gutter → input inset → panel → header soft → elevated menus
+*/
+html[data-theme='dark'] {
+  --bg-sidebar: #080808;
+  --bg-page: #1c1c1c;
+  --bg-input: #121212;
+  --bg: #222222;
+  --bg-soft: #2c2c2c;
+  --bg-elevated: #343434;
+  --bg-sidebar-item-hover: #1a1a1a;
+  --bg-sidebar-item-active: #242424;
+  --border-sidebar-item-active: #3f3f3f;
+  --border: #363636;
+  --border-strong: #525252;
+  --text: #ececec;
+  --text-soft: #b4b4b4;
+  --text-secondary: #b4b4b4;
+  --text-muted: #7a7a7a;
+  --placeholder: #5c5c5c;
+  --primary: #4d9eff;
+  --primary-soft: #1a2f4a;
+  --primary-hover: #6eb0ff;
+  --accent: #4d9eff;
+  --accent-hover: #6eb0ff;
+  --accent-soft: #1a2f4a;
+  --success: #3dd68c;
+  --warning: #f5a623;
+  --danger: #ff5555;
+  --info: #4d9eff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 8px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.55);
+  --scrollbar-thumb: #4a4a4a;
+  --focus-ring: 0 0 0 3px rgba(77, 158, 255, 0.28);
+  --overlay-scrim: rgba(0, 0, 0, 0.6);
+  /* Keep in sync with shared/theme.ts THEME_CHROME */
+  --chrome-bg: #080808;
+  --chrome-fg: #b4b4b4;
+  --danger-ghost-border: #5c2020;
+  --danger-ghost-fg: #ff8a8a;
+  --toast-info-bg: #1a2f4a;
+  --toast-info-border: #2a4a73;
+  --toast-info-fg: #b3d4ff;
+  --toast-ok-bg: #143528;
+  --toast-ok-border: #1f5c3a;
+  --toast-ok-fg: #9fe3bc;
+  --toast-error-bg: #3a1515;
+  --toast-error-border: #5c2020;
+  --toast-error-fg: #ffb3b3;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.textarea::-webkit-resizer {
+  background: linear-gradient(
+      -45deg,
+      transparent 0 42%,
+      var(--border-strong) 42% 48%,
+      transparent 48% 58%,
+      var(--border-strong) 58% 64%,
+      transparent 64%
+    )
+    bottom right / 12px 12px no-repeat;
+}

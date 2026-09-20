@@ -1,0 +1,20 @@
+# Force LF in the repo and working tree for all text files.
+# Overrides global core.autocrlf=true on Windows checkouts.
+* text=auto eol=lf
+
+# Windows shell scripts only
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
